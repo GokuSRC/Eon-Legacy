@@ -18,12 +18,13 @@
     public const string GitHub_Greenwood = "https://github.com/EonOGFN";
 
     // Download
-    public const string DownloadBuildURL = "https://services.eonfn.dev/download";
+    public const string DownloadBuildURL = "https://services.eonfn.net/build/download";
+    public const string DownloadLauncherURL = "https://services.eonfn.net/launcher/download";
 
     // Donations 
-    public const string DonationsURL = "https://shop.eonfn.dev";
+    public const string DonationsURL = "https://shop.eonfn.net";
 
     // Support
-    public const string SupportServerURL = "https://services.eonfn.dev/support";
-    public const string CreateAccountURL = "https://discord.com/channels/1185620726695342260/1210499602885640213";
+    public const string SupportServerURL = "https://services.eonfn.net/support";
+    public const string CreateAccountURL = "https://services.eonfn.net/account/create";
 }

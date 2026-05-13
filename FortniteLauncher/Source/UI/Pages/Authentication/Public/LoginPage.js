@@ -179,7 +179,6 @@ function ShowLogin() {
 async function HandleLogin() {
     const Email = document.getElementById("EmailInput").value.trim();
     const Password = PasswordInput.value.trim();
-    const RememberMe = document.getElementById("RememberMe").checked;
 
     if (!Email || !Password) {
         ShowNotification("Missing Fields", "Please enter both email and password.");
@@ -202,7 +201,7 @@ async function HandleLogin() {
         return;
     }
 
-    window.chrome.webview.postMessage({ Action: "Login", Email, Password, RememberMe });
+    window.chrome.webview.postMessage({ Action: "Login", Email, Password });
 }
 
 function HandleLoginResponse(Data) {

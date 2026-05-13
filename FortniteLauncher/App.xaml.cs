@@ -16,7 +16,6 @@ namespace FortniteLauncher
                 InitializeComponent();
                 EnsureSingleInstance();
 
-                EonRPC.Start();
                 Processes.ForceCloseFortnite();
             }
             catch (Exception ex)

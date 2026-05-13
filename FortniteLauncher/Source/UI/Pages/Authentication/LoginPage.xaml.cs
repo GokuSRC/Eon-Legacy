@@ -98,7 +98,7 @@ namespace FortniteLauncher.Pages
                     Status = Response.Status,
                     Username = GlobalSettings.Options.Username ?? "Player",
                     SkinUrl = GlobalSettings.Options.SkinUrl ?? $"{Definitions.CDN_URL}/EonS17.png",
-                    DownloadUrl = ProjectDefinitions.DownloadBuildURL
+                    DownloadUrl = ProjectDefinitions.DownloadLauncherURL
                 });
 
                 if (Response.Status == "Success")
@@ -120,11 +120,7 @@ namespace FortniteLauncher.Pages
             {
                 GlobalSettings.Options.Email = Message.Email;
                 GlobalSettings.Options.Password = Message.Password;
-
-                if (Message.RememberMe)
-                {
-                    UserSettings.SaveSettings();
-                }
+                UserSettings.SaveSettings();
             }
 
             await SendMessageToWebView(new
@@ -133,7 +129,7 @@ namespace FortniteLauncher.Pages
                 Status = Response.Status,
                 Username = GlobalSettings.Options.Username ?? "Player",
                 SkinUrl = GlobalSettings.Options.SkinUrl ?? $"{Definitions.CDN_URL}/EonS17.png",
-                DownloadUrl = ProjectDefinitions.DownloadBuildURL
+                DownloadUrl = ProjectDefinitions.DownloadLauncherURL
             });
 
             if (Response.Status == "Success")
@@ -172,7 +168,6 @@ namespace FortniteLauncher.Pages
             public string Action { get; set; }
             public string Email { get; set; }
             public string Password { get; set; }
-            public bool RememberMe { get; set; }
         }
     }
 }

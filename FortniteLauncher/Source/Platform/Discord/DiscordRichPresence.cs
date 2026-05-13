@@ -16,7 +16,7 @@ class EonRPC
             while (true)
             {
                 UpdatePresence();
-                await Task.Delay(1 * 1000);
+                await Task.Delay(1000);
             }
         });
     }
@@ -26,20 +26,24 @@ class EonRPC
         if (!Client.IsInitialized)
             return;
 
-        Client.SetPresence(new RichPresence
-        {
-            State = "Chapter 2 Season 7 - OG Fortnite",
-            Timestamps = new Timestamps { Start = StartTimestamp },
-
-            Assets = new Assets
+            Client.SetPresence(new RichPresence
             {
-                LargeImageKey = "fn17",
-                LargeImageText = "Eon"
-            },
+                Details = "An OG Fortnite Experience.",
+                Timestamps = new Timestamps { Start = StartTimestamp },
 
-            Buttons = new[]
-            {
-                new Button { Label = "Join Discord", Url = ProjectDefinitions.Discord },
+                Assets = new Assets
+                {
+                    SmallImageKey = string.IsNullOrEmpty(GlobalSettings.Options.SkinUrl) ? "" : GlobalSettings.Options.SkinUrl,
+                    SmallImageText = GlobalSettings.Options.Username,
+
+                    LargeImageKey = "fn17",
+                    LargeImageText = "Logged In Launcher."
+                },
+
+                Buttons = new[]
+                {
+                    new Button { Label = "Join Discord", Url = ProjectDefinitions.Discord,
+                }
             }
         });
     }

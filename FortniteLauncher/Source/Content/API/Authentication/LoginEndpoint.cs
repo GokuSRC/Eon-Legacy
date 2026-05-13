@@ -5,6 +5,14 @@ using System.Threading.Tasks;
 
 public enum VerifyLoginStatus { Success, Banned, Deny, Invalid, Error, Outdated, Donator }
 
+public class ApiResponse
+{
+    public string Status { get; set; }
+    public string Username { get; set; }
+    public string Email { get; set; }
+    public string Skin { get; set; }
+}
+
 class Authenticator
 {
     public static async Task<ApiResponse> CheckLogin(string Email, string Password)
@@ -30,6 +38,10 @@ class Authenticator
                 GlobalSettings.Options.Username = Response.Username;
                 GlobalSettings.Options.Email = Response.Email;
                 GlobalSettings.Options.SkinUrl = Response.Skin;
+
+                UserSettings.SaveSettings();
+                EonRPC.Start();
+
                 return Response;
             }
 
@@ -46,12 +58,4 @@ class Authenticator
         await DialogService.ShowSimpleDialog(Message, Title);
         return new ApiResponse { Status = VerifyLoginStatus.Error.ToString() };
     }
-}
-
-public class ApiResponse
-{
-    public string Status { get; set; }
-    public string Username { get; set; }
-    public string Email { get; set; }
-    public string Skin { get; set; }
 }
