@@ -12,7 +12,7 @@
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 		<WindowsPackageType>None</WindowsPackageType>
-		<ApplicationIcon>Content\Texture\Branding\Eon.ico</ApplicationIcon>
+		<ApplicationIcon>Content\Texture\Branding\EonPlus.ico</ApplicationIcon>
 		<ApplicationManifest>Source\Core\Manifest\Eon.manifest</ApplicationManifest>
 		<AssemblyName>Eon</AssemblyName>
 		<SignAssembly>False</SignAssembly>
@@ -41,6 +41,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="Content\Texture\Branding\EonPlus.ico" />
 		<None Remove="Pages\Downloads.xaml" />
 		<None Remove="Pages\Itemshop.xaml" />
 		<None Remove="Pages\Leaderboard.xaml" />
@@ -105,6 +106,9 @@
 	<ItemGroup>
 		<Content Include="Content\Texture\Branding\Eon.ico">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Content\Texture\Branding\EonPlus.ico">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Content\Texture\Icons\IC_Download.svg" />
 		<Content Include="Content\Texture\Icons\IC_Leaderboard.svg" />

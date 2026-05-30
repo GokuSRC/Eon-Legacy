@@ -9,8 +9,7 @@
     xmlns:AnimatedVisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:windowex="using:WinUIEx"
     mc:Ignorable="d">
-
-    <Grid x:Name="RootGrid" Background="#202336">
+    <Grid x:Name="RootGrid" Background="#202336" IsTabStop="True">
         <Grid.Resources>
             <FontFamily x:Key="BricolageGrotesque">ms-appx:///Content/Font/Geist-VariableFont_wght.ttf#Geist</FontFamily>
         </Grid.Resources>
@@ -22,7 +21,6 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
         <Grid x:Name="AppTitleBar" 
               Background="Transparent" 
               Visibility="Visible" 
@@ -34,7 +32,7 @@
             <Grid.OpacityTransition>
                 <ScalarTransition Duration="0:0:0.083"/>
             </Grid.OpacityTransition>
-            <Image Source="ms-appx:///Content/Texture/Branding/Eon.ico"
+            <Image Source="ms-appx:///Content/Texture/Branding/EonPlus.ico"
                    Width="21" 
                    Height="21" 
                    VerticalAlignment="Center" 
@@ -48,7 +46,6 @@
                        FontFamily="{StaticResource BricolageGrotesque}"
                        FontWeight="SemiBold"/>
         </Grid>
-
         <Frame x:Name="MainWindowFrame" Grid.Row="1" Grid.Column="1"/>
     </Grid>
 </windowex:WindowEx>
