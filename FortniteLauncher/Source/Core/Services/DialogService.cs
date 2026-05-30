@@ -193,9 +193,15 @@ class DialogService
         if (Content.Contains("because it is being used by another process"))
             return "Fortnite is already running. Close it and try again. If the issue persists, restart your computer.";
 
-        if (Title.Contains("Corrupted Data Detected"))
-            return $"Your game files are corrupted. Download the Fortnite build from {ProjectDefinitions.DownloadBuildURL}, extract it, and set the path in the launcher.";
-
+       if (Title.Contains("Corrupted Data Detected"))
+{
+    var Message = $"Your game files are corrupted. Download the Fortnite build from {ProjectDefinitions.DownloadBuildURL}, extract it, and set the path in the launcher.";
+    
+    if (!string.IsNullOrEmpty(Content))
+        Message += $"\n\n{Content}";
+    
+    return Message;
+}
         if (Content.Contains("SSL"))
             return "Connection issue detected. Download and enable CloudFlare WARP from https://one.one.one.one/ to continue.";
 
