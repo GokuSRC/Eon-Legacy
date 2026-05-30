@@ -1,7 +1,7 @@
 ﻿class ProjectDefinitions
 {
     // Project Name
-    public const string Name = "Eon";
+    public const string Name = "Eon +";
 
     // Fortnite Build
     public const string Chapter = "2";
