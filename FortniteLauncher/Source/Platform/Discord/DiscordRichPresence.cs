@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 class EonRPC
 {
-    private static readonly DiscordRpcClient Client = new("1208133454215122984");
+    private static readonly DiscordRpcClient Client = new("1510333447003046018");
     private static readonly DateTime StartTimestamp = DateTime.UtcNow;
 
     public static async void Start()
