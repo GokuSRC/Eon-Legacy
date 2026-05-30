@@ -21,7 +21,8 @@ class Anticheat
             var MissingFiles = GetAllowedContentFiles().Where(File => !Directory.GetFiles(ContentPath).Select(Path.GetFileName).ToHashSet(StringComparer.OrdinalIgnoreCase).Contains(File)).ToList();
             if (MissingFiles.Any())
             {
-                DialogService.ShowSimpleDialog(string.Empty, "Corrupted Data Detected");
+                var MissingList = string.Join("\n", MissingFiles);
+                DialogService.ShowSimpleDialog($"Missing files:\n{MissingList}", "Corrupted Data Detected");
                 return EPlayStatus.Corrupted;
             }
 
