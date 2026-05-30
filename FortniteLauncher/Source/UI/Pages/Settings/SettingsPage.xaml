@@ -66,7 +66,7 @@
                 <controls:SettingsExpander.HeaderIcon>
                     <ImageIcon Source="ms-appx:///Content/Texture/Branding/Eon.ico"/>
                 </controls:SettingsExpander.HeaderIcon>
-
+                
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard FontWeight="SemiBold">
                         <controls:SettingsCard.Header>
@@ -100,6 +100,31 @@
                         </controls:SettingsCard.Header>
                     </controls:SettingsCard>
                 </controls:SettingsExpander.ItemsFooter>
+            </controls:SettingsExpander>
+            <controls:SettingsExpander x:Name="AboutPlus"
+                               Header="About Eon +"
+                               Description="1.0.0"
+                               FontWeight="SemiBold">
+                <controls:SettingsExpander.HeaderIcon>
+                    <ImageIcon Source="ms-appx:///Content/Texture/Branding/EonPlus.ico"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard FontWeight="SemiBold">
+                        <controls:SettingsCard.Header>
+                            <TextBlock FontWeight="SemiBold" Margin="-35,0,0,0">
+        <Run Text="Mod made by"/>
+        <Hyperlink NavigateUri="https://github.com/wtcdevv">
+            <Run Text="wtc"/>
+        </Hyperlink>
+        <Run Text="and"/>
+        <Hyperlink NavigateUri="https://github.com/ByZNexus">
+            <Run Text="ByZNs"/>
+        </Hyperlink>
+        <Run Text="for Eon Launcher."/>
+                            </TextBlock>
+                        </controls:SettingsCard.Header> 
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
         </StackPanel>
     </Grid>
