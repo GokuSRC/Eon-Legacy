@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Loaded="PageLoaded">
 
-    <Grid Margin="55,15,55,35">
+    <Grid Margin="55,45,55,35">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -24,19 +24,19 @@
 
         <StackPanel Grid.Row="0" x:Name="AppearanceSettingsPanel" Spacing="3">
             <TextBlock Text="Appearance and Behavior" 
-               Style="{ThemeResource CaptionTextBlockStyle}" 
-               FontWeight="SemiBold"/>
+                       Style="{ThemeResource CaptionTextBlockStyle}" 
+                       FontWeight="SemiBold"/>
 
             <controls:SettingsCard x:Name="SoundSettingsCard"
-                           Header="Sound Effects"
-                           Description="Hear sound effects while navigating the launcher menus."
-                           FontWeight="SemiBold">
+                                   Header="Sound Effects"
+                                   Description="Hear sound effects while navigating the launcher menus."
+                                   FontWeight="SemiBold">
                 <ToggleSwitch x:Name="SoundToggle" Toggled="ToggleSoundSwitch"/>
             </controls:SettingsCard>
 
             <controls:SettingsCard Header="Theme"
-                           Description="Switch between available themes."
-                           FontWeight="SemiBold">
+                                   Description="Switch between available themes."
+                                   FontWeight="SemiBold">
                 <ComboBox x:Name="ThemeSelector" SelectionChanged="ThemeChanged">
                     <ComboBoxItem Content="Default"/>
                     <ComboBoxItem Content="Dark"/>
@@ -44,10 +44,11 @@
                     <ComboBoxItem Content="KittyParty"/>
                     <ComboBoxItem Content="Borris"/>
                     <ComboBoxItem Content="Billoute"/>
+                    <ComboBoxItem Content="ttt"/>
                 </ComboBox>
             </controls:SettingsCard>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="1" x:Name="BuildingStylePanel" Spacing="3" Margin="0,5,0,12">
             <controls:SettingsCard x:Name="BubbleBuildsCard" 
                                    Header="Bubble Builds" 
@@ -79,12 +80,11 @@
                 <controls:SettingsExpander.HeaderIcon>
                     <ImageIcon Source="ms-appx:///Content/Texture/Branding/Eon.ico"/>
                 </controls:SettingsExpander.HeaderIcon>
-                
+
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard FontWeight="SemiBold">
                         <controls:SettingsCard.Header>
-                            <TextBlock Margin="-35,0,0,0"
-                                       FontWeight="SemiBold">
+                            <TextBlock Margin="-35,0,0,0" FontWeight="SemiBold">
                                 <Run Text="Launcher made by"/>
                                 <Hyperlink NavigateUri="{x:Bind GitHub_Juri}">
                                     <Run Text="Jurij15"/>
@@ -114,10 +114,11 @@
                     </controls:SettingsCard>
                 </controls:SettingsExpander.ItemsFooter>
             </controls:SettingsExpander>
+
             <controls:SettingsExpander x:Name="AboutPlus"
-                               Header="About Eon +"
-                               Description="1.0.0"
-                               FontWeight="SemiBold">
+                                       Header="About Eon +"
+                                       Description="1.0.0"
+                                       FontWeight="SemiBold">
                 <controls:SettingsExpander.HeaderIcon>
                     <ImageIcon Source="ms-appx:///Content/Texture/Branding/EonPlus.ico"/>
                 </controls:SettingsExpander.HeaderIcon>
@@ -125,17 +126,17 @@
                     <controls:SettingsCard FontWeight="SemiBold">
                         <controls:SettingsCard.Header>
                             <TextBlock FontWeight="SemiBold" Margin="-35,0,0,0">
-        <Run Text="Mod made by"/>
-        <Hyperlink NavigateUri="https://github.com/wtcdevv">
-            <Run Text="wtc"/>
-        </Hyperlink>
-        <Run Text="and"/>
-        <Hyperlink NavigateUri="https://github.com/ByZNexus">
-            <Run Text="ByZNs"/>
-        </Hyperlink>
-        <Run Text="for Eon Launcher."/>
+                                <Run Text="Mod made by"/>
+                                <Hyperlink NavigateUri="https://github.com/wtcdevv">
+                                    <Run Text="wtc"/>
+                                </Hyperlink>
+                                <Run Text="and"/>
+                                <Hyperlink NavigateUri="https://github.com/ByZNexus">
+                                    <Run Text="ByZNs"/>
+                                </Hyperlink>
+                                <Run Text="for Eon Launcher."/>
                             </TextBlock>
-                        </controls:SettingsCard.Header> 
+                        </controls:SettingsCard.Header>
                     </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
