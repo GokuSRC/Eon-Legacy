@@ -1,18 +1,12 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
-using System;
 
 namespace FortniteLauncher.Pages
 {
     public sealed partial class MainShellPage : Page
     {
         public static NavigationView STATIC_MainNavigation;
-
-        // Properties needed for x:Bind data bindings in your XAML layout
-        public string Progress { get; set; } = "0%";
-        public string DisplayUsername { get; set; } = "Player";
-        public string Description { get; set; } = "Welcome back!";
 
         public void SetBackground(Brush Brush)
         {
@@ -50,22 +44,6 @@ namespace FortniteLauncher.Pages
         {
             STATIC_MainNavigation = MainNavigation;
             SettingsPage.ApplyTheme(GlobalSettings.Options.Theme ?? "Default");
-        }
-
-        // Action Handlers for your XAML interactive cards and buttons
-        private void Donations(object sender, RoutedEventArgs e)
-        {
-            // Add your donation link handling code logic here
-        }
-
-        private void Tiktok(object sender, RoutedEventArgs e)
-        {
-            // Add your TikTok link handling code logic here
-        }
-
-        private void Launch(object sender, RoutedEventArgs e)
-        {
-            // Add your game launching process initialization logic here
         }
     }
 }

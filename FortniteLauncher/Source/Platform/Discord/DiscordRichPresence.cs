@@ -42,7 +42,7 @@ class EonRPC
 
                 Buttons = new[]
                 {
-                    new Button { Label = "Github", Url = ProjectDefinitions.Github,
+                    new Button { Label = "Github Repo", Url = ProjectDefinitions.Github,
                 }
             }
         });
