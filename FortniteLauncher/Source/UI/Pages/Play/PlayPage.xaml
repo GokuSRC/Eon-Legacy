@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="FortniteLauncher.Pages.PlayPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -6,38 +7,34 @@
     xmlns:controls="using:CommunityToolkit.Labs.WinUI"
     NavigationCacheMode="Enabled">
 
-    <Grid Margin="8">
+    <Grid Margin="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border x:Name="HeaderBorder" CornerRadius="8" Margin="0,0,0,4" Height="215">
+        <Border x:Name="HeaderBorder" CornerRadius="8" Margin="0,0,0,4" Height="215" Grid.Row="0">
             <Grid>
                 <Image x:Name="BannerImage" Stretch="UniformToFill">
                     <Image.Source>
-                        <BitmapImage UriSource="ms-appx:///Content/Texture/UI/T_Banner.png" CreateOptions="IgnoreImageCache"/>
+                        <BitmapImage UriSource="" CreateOptions="IgnoreImageCache"/>
                     </Image.Source>
                 </Image>
-
-                <Border x:Name="HeaderBlurBorder" CornerRadius="8">
-                    <Border.Background>
-                        <SolidColorBrush x:Name="OverlayBrush" Color="#B2000000"/>
-                    </Border.Background>
-                </Border>
+                <Border x:Name="HeaderBlurBorder" CornerRadius="8" Background="Transparent"/>
             </Grid>
         </Border>
 
-        <Grid Grid.Row="0" Margin="0,0,0,4">
+        <Grid Grid.Row="0" Margin="0,0,0,4" VerticalAlignment="Bottom">
             <Border Padding="8" x:Name="HeaderProfileBanner">
-                <Grid HorizontalAlignment="Left">
+                <Grid HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid x:Name="ProfileContainer" VerticalAlignment="Center">
+                    <Grid x:Name="ProfileContainer" Grid.Column="0" VerticalAlignment="Center">
                         <Border x:Name="BlurredBackground" Width="96" Height="96" CornerRadius="20" Background="Gray" Opacity="0.1"/>
                         <Border Width="96" Height="96" CornerRadius="20">
                             <Border.Background>
@@ -71,14 +68,25 @@
                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                    Margin="0,1,0,0"/>
                     </StackPanel>
+
+                    <Border Grid.Column="2" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Center"
+                            Height="96" 
+                            Width="180" 
+                            CornerRadius="12" 
+                            Margin="0,0,16,0">
+                        <Image Source="https://i.pinimg.com/736x/27/cd/69/27cd69ca3167966ecb560a4c3d107850.jpg" 
+                               Stretch="UniformToFill"/>
+                    </Border>
                 </Grid>
             </Border>
         </Grid>
 
-        <Grid Grid.Row="1" Margin="4">
+        <Grid Grid.Row="1" Margin="4,0,4,12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="8"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -113,20 +121,64 @@
             </controls:SettingsCard>
         </Grid>
 
-        <controls:SettingsCard x:Name="LaunchButton"
-                               x:FieldModifier="public"
-                               Grid.Row="2"
-                               Tag="Launch"
-                               Header="{x:Bind local:PlayPage.Season, Mode=OneTime}"
-                               Description="{x:Bind local:PlayPage.Chapter, Mode=OneTime}"
-                               Margin="4,2,4,2"
-                               IsClickEnabled="True"
-                               IsActionIconVisible="False"
-                               Click="Launch"
-                               FontWeight="SemiBold">
-            <controls:SettingsCard.HeaderIcon>
-                <FontIcon Glyph="&#xE768;"/>
-            </controls:SettingsCard.HeaderIcon>
-        </controls:SettingsCard>
+        <Grid Grid.Row="2" Margin="4,0,4,12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <controls:SettingsCard x:Name="LaunchButton"
+                                   Grid.Row="0"
+                                   x:FieldModifier="public"
+                                   Tag="Launch"
+                                   Header="{x:Bind local:PlayPage.Season, Mode=OneTime}"
+                                   Description="{x:Bind local:PlayPage.Chapter, Mode=OneTime}"
+                                   Margin="0,2,0,0"
+                                   IsClickEnabled="True"
+                                   IsActionIconVisible="False"
+                                   Click="Launch"
+                                   FontWeight="SemiBold">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE768;"/>
+                </controls:SettingsCard.HeaderIcon>
+            </controls:SettingsCard>
+
+            <StackPanel Grid.Row="2" Spacing="6" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <TextBlock Text="updates and news" 
+                           FontSize="22" 
+                           FontFamily="Consolas"
+                           FontWeight="Normal" 
+                           Foreground="White"/>
+
+                <TextBlock Text="we are updating eon+ 24/7" 
+                           FontSize="16" 
+                           FontFamily="Consolas"
+                           Foreground="#EAEAEA"
+                           Margin="0,0,0,4"/>
+
+                <MenuFlyoutSeparator Background="Gray" Margin="0,4,0,16" Width="340" HorizontalAlignment="Left"/>
+
+                <StackPanel Orientation="Horizontal" Spacing="16">
+                    <TextBlock Text="31/05/26" 
+                               FontSize="18" 
+                               FontFamily="Consolas"
+                               FontWeight="Normal" 
+                               Foreground="White"/>
+
+                    <TextBlock Text="|" 
+                               FontSize="18" 
+                               FontFamily="Consolas"
+                               Foreground="Gray"/>
+
+                    <TextBlock Text="RELEASE OF EON+" 
+                               FontSize="18" 
+                               FontFamily="Consolas"
+                               FontWeight="SemiBold" 
+                               Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
     </Grid>
 </Page>
