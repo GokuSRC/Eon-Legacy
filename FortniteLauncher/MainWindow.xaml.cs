@@ -88,7 +88,7 @@ namespace FortniteLauncher
 
         private void ConfigureWindow()
         {
-            // Extends the window content area directly under the title bar
+  
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
             this.SetWindowSize(1200, 725);
@@ -119,7 +119,7 @@ namespace FortniteLauncher
 
         public void SetWindowBackground(Brush Brush)
         {
-            // Apply the theme background to the very root Grid container
+          
             if (RootGrid != null)
             {
                 RootGrid.Background = Brush;
@@ -129,7 +129,7 @@ namespace FortniteLauncher
                 rootGrid.Background = Brush;
             }
 
-            // Keep the custom title bar layout grid background completely transparent
+         
             if (AppTitleBar != null)
             {
                 AppTitleBar.Background = new SolidColorBrush(Colors.Transparent);
@@ -142,13 +142,12 @@ namespace FortniteLauncher
         {
             if (AppWindow != null && AppWindow.TitleBar != null)
             {
-                // Force native top system colors to be 100% transparent so your underlying grid theme background shows through
-                AppWindow.TitleBar.BackgroundColor = Colors.Transparent;
+             
                 AppWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
                 AppWindow.TitleBar.InactiveBackgroundColor = Colors.Transparent;
                 AppWindow.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
-                // Keep window action icons crisp and readable
+            
                 AppWindow.TitleBar.ButtonForegroundColor = Colors.White;
                 AppWindow.TitleBar.ButtonHoverBackgroundColor = Windows.UI.Color.FromArgb(40, 255, 255, 255);
                 AppWindow.TitleBar.ButtonPressedBackgroundColor = Windows.UI.Color.FromArgb(60, 255, 255, 255);
@@ -156,4 +155,4 @@ namespace FortniteLauncher
             }
         }
     }
-}
+}  // THIS WAS MADE BY WTC AND BYZN ANYONE WHO SKIDS OF US! THIS PROJECT IS CALLED EON+
