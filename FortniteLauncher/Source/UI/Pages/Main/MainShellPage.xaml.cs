@@ -1,11 +1,17 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace FortniteLauncher.Pages
 {
     public sealed partial class MainShellPage : Page
     {
         public static NavigationView STATIC_MainNavigation;
+
+        public void SetBackground(Brush Brush)
+        {
+            MainNavigation.Background = Brush;
+        }
 
         public MainShellPage()
         {
@@ -37,6 +43,7 @@ namespace FortniteLauncher.Pages
         private void MainNavigation_Loaded(object Sender, RoutedEventArgs Event)
         {
             STATIC_MainNavigation = MainNavigation;
+            SettingsPage.ApplyTheme(GlobalSettings.Options.Theme ?? "Default");
         }
     }
 }

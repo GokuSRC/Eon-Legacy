@@ -84,5 +84,10 @@ namespace FortniteLauncher
             ShellFrame = MainWindowFrame;
             MainWindowFrame.Navigate(typeof(LoginPage));
         }
+
+        public void SetWindowBackground(Brush Brush)
+        {
+            RootGrid.Background = Brush;
+        }
     }
 }

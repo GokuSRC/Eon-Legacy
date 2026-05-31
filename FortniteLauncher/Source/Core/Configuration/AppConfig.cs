@@ -8,4 +8,5 @@
     public bool IsBubbleBuildsEnabled { get; set; }
     public bool RedirectProtected { get; set; }
     public string SkinUrl { get; set; }
+    public string Theme { get; set; } = "Dark";
 }

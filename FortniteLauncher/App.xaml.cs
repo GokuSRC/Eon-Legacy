@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using FortniteLauncher.Pages;
+using Microsoft.UI.Xaml;
 using System;
 using System.Threading;
 
@@ -65,6 +66,8 @@ namespace FortniteLauncher
             if (GlobalSettings.Options.IsSoundEnabled)
             {
                 ElementSoundPlayer.State = ElementSoundPlayerState.On;
+
+                SettingsPage.ApplyTheme(GlobalSettings.Options.Theme ?? "Default");
             }
         }
     }

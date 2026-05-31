@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Loaded="PageLoaded">
 
-    <Grid Background="#202336">
+    <Grid Background="{StaticResource AppBackground}" >
         <WebView2 x:Name="LoginWebView"/>
     </Grid>
 </Page>

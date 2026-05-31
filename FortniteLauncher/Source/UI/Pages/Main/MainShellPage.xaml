@@ -22,7 +22,7 @@
                         IsPaneOpen="True"
                         CompactModeThresholdWidth="0"
                         ExpandedModeThresholdWidth="0"
-                        Background="#202336"
+                        Background="{StaticResource AppBackground}" 
                         SelectionChanged="MainNavigation_SelectionChanged">
 
             <NavigationView.Resources>

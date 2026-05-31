@@ -24,17 +24,28 @@
 
         <StackPanel Grid.Row="0" x:Name="AppearanceSettingsPanel" Spacing="3">
             <TextBlock Text="Appearance and Behavior" 
-                       Style="{ThemeResource CaptionTextBlockStyle}" 
-                       FontWeight="SemiBold"/>
+               Style="{ThemeResource CaptionTextBlockStyle}" 
+               FontWeight="SemiBold"/>
 
             <controls:SettingsCard x:Name="SoundSettingsCard"
-                                   Header="Sound Effects"
-                                   Description="Hear sound effects while navigating the launcher menus."
-                                   FontWeight="SemiBold">
+                           Header="Sound Effects"
+                           Description="Hear sound effects while navigating the launcher menus."
+                           FontWeight="SemiBold">
                 <ToggleSwitch x:Name="SoundToggle" Toggled="ToggleSoundSwitch"/>
             </controls:SettingsCard>
-        </StackPanel>
 
+            <controls:SettingsCard Header="Theme"
+                           Description="Switch between available themes."
+                           FontWeight="SemiBold">
+                <ComboBox x:Name="ThemeSelector" SelectionChanged="ThemeChanged">
+                    <ComboBoxItem Content="Default"/>
+                    <ComboBoxItem Content="Dark"/>
+                    <ComboBoxItem Content="Light"/>
+                    <ComboBoxItem Content="KittyParty"/>
+                </ComboBox>
+            </controls:SettingsCard>
+        </StackPanel>
+        
         <StackPanel Grid.Row="1" x:Name="BuildingStylePanel" Spacing="3" Margin="0,5,0,12">
             <controls:SettingsCard x:Name="BubbleBuildsCard" 
                                    Header="Bubble Builds" 
@@ -60,7 +71,7 @@
                        Style="{ThemeResource CaptionTextBlockStyle}" 
                        FontWeight="SemiBold"/>
             <controls:SettingsExpander x:Name="About"
-                                       Header="{x:Bind About_Header}"
+                                       Header="About Eon Launcher"
                                        Description="{x:Bind LauncherVersion}"
                                        FontWeight="SemiBold">
                 <controls:SettingsExpander.HeaderIcon>

@@ -9,7 +9,7 @@
     xmlns:AnimatedVisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:windowex="using:WinUIEx"
     mc:Ignorable="d">
-    <Grid x:Name="RootGrid" Background="#202336" IsTabStop="True">
+    <Grid x:Name="RootGrid" Background="{StaticResource AppBackground}"  IsTabStop="True">
         <Grid.Resources>
             <FontFamily x:Key="BricolageGrotesque">ms-appx:///Content/Font/Geist-VariableFont_wght.ttf#Geist</FontFamily>
         </Grid.Resources>
