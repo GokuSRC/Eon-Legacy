@@ -21,6 +21,10 @@ namespace FortniteLauncher.Pages
         {
             try
             {
+                // --- FIX: Force the underlying WebView2 environment to use 0 alpha (True Transparency) ---
+                // This eliminates the stubborn solid grey background box before EnsureCoreWebView2Async runs.
+                Environment.SetEnvironmentVariable("WEBVIEW2_DEFAULT_BACKGROUND_COLOR", "0");
+
                 await LoginWebView.EnsureCoreWebView2Async();
 
                 if (LoginWebView.CoreWebView2 == null)
@@ -28,6 +32,9 @@ namespace FortniteLauncher.Pages
                     DialogService.ShowSimpleDialog("Failed to initialize WebView2. CoreWebView2 is null.", "Error");
                     return;
                 }
+
+                // Explicitly keep the framework-level background transparent
+                LoginWebView.DefaultBackgroundColor = Microsoft.UI.Colors.Transparent;
 
                 LoginWebView.CoreWebView2.WebMessageReceived += MessageReceived;
 

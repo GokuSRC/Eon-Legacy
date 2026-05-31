@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Windows.System;
 using Microsoft.UI.Xaml.Controls;
@@ -56,8 +57,24 @@ namespace FortniteLauncher
         }
 
         private void OnKonamiActivated()
-        {
-            DialogService.ShowSimpleDialog("you found the secret :)", "Konami Code");
+
+            GlobalSettings.SecretThemesUnlocked = true;
+
+            DialogService.ShowSimpleDialog("Wow u found the secret! go check ur themes!", "secret found!");
+
+
+            if (MainWindowFrame != null && MainWindowFrame.Content != null)
+            {
+                Type currentPageType = MainWindowFrame.Content.GetType();
+                MainWindowFrame.Navigate(currentPageType);
+            }
+
+
+            if (ShellFrame != null && ShellFrame.Content != null)
+            {
+                Type currentShellPageType = ShellFrame.Content.GetType();
+                ShellFrame.Navigate(currentShellPageType);
+            }
         }
 
         private void ConfigureWindow()

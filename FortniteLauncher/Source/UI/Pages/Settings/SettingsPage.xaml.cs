@@ -26,9 +26,23 @@ namespace FortniteLauncher.Pages
         {
             SoundToggle.IsOn = GlobalSettings.Options.IsSoundEnabled;
             BubbleBuildsToggle.IsOn = GlobalSettings.Options.IsBubbleBuildsEnabled;
+
+  
+            if (ThemeSelector != null)
+            {
+                foreach (var item in ThemeSelector.Items.Cast<ComboBoxItem>().ToList())
+                {
+                    string contentString = item.Content?.ToString();
+                    if (contentString == "KittyParty" || contentString == "Borris" || contentString == "Billoute")
+                    {
+                        item.Visibility = GlobalSettings.SecretThemesUnlocked ? Visibility.Visible : Visibility.Collapsed;
+                    }
+                }
+            }
+
             ThemeSelector.SelectedItem = ThemeSelector.Items
-              .Cast<ComboBoxItem>()
-              .FirstOrDefault(i => i.Content.ToString() == GlobalSettings.Options.Theme);
+                .Cast<ComboBoxItem>()
+                .FirstOrDefault(i => i.Content.ToString() == GlobalSettings.Options.Theme);
         }
 
         private void ToggleSoundSwitch(object Sender, RoutedEventArgs Event)
@@ -47,6 +61,7 @@ namespace FortniteLauncher.Pages
 
             UserSettings.SaveSettings();
         }
+
         private void ToggleBubbleBuilds(object Sender, RoutedEventArgs Event)
         {
             if (BubbleBuildsToggle.IsOn)
@@ -88,6 +103,7 @@ namespace FortniteLauncher.Pages
                 Button.IsEnabled = true;
             }
         }
+
         private void ThemeChanged(object Sender, SelectionChangedEventArgs Event)
         {
             if (ThemeSelector.SelectedItem is ComboBoxItem Selected)
@@ -104,12 +120,19 @@ namespace FortniteLauncher.Pages
             Brush Brush;
             var RequestedTheme = Theme == "Light" ? ElementTheme.Light : ElementTheme.Dark;
 
-            if (Theme == "KittyParty")
+            if (Theme == "KittyParty" || Theme == "Borris" || Theme == "Billoute")
             {
+                string imageUrl = Theme switch
+                {
+                    "KittyParty" => "https://media.discordapp.net/attachments/1509928333264031826/1510659568009744525/image.png?ex=6a1d9edb&is=6a1c4d5b&hm=4aebcaa1ee9ff6a9a1e59094e0db12c0434f3d3b95f0f6e784ee0221d1c7ea7d&format=webp&quality=lossless&width=912&height=959&",
+                    "Borris" => "https://media.discordapp.net/attachments/1509928333264031826/1510669092984717332/borris.png?ex=6a1da7ba&is=6a1c563a&hm=6cc87b8ae47eca0251b68a49f46567467f3a0dbc7f148a786ba190dd25d627b1&=&format=webp&quality=lossless&width=912&height=885",
+                    "Billoute" => "https://media.discordapp.net/attachments/1500223387144945835/1510671953214574592/boos.png?ex=6a1daa64&is=6a1c58e4&hm=b528c96085670deff1b4d9472f91a3759e7a61380321ff01737a463a6fbe89ef&=&format=webp&quality=lossless",
+                    _ => string.Empty
+                };
+
                 Brush = new ImageBrush
                 {
-                    ImageSource = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(
-                        new Uri("https://media.discordapp.net/attachments/1509928333264031826/1510659568009744525/image.png?ex=6a1d9edb&is=6a1c4d5b&hm=4aebcaa1ee9ff6a9a1e59094e0db12c0434f3d3b95f0f6e784ee0221d1c7ea7d&format=webp&quality=lossless&width=912&height=959&")),
+                    ImageSource = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri(imageUrl)),
                     Stretch = Stretch.UniformToFill
                 };
                 RequestedTheme = ElementTheme.Dark;

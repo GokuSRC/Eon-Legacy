@@ -42,6 +42,8 @@
                     <ComboBoxItem Content="Dark"/>
                     <ComboBoxItem Content="Light"/>
                     <ComboBoxItem Content="KittyParty"/>
+                    <ComboBoxItem Content="Borris"/>
+                    <ComboBoxItem Content="Billoute"/>
                 </ComboBox>
             </controls:SettingsCard>
         </StackPanel>

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 class EonRPC
 {
-    private static readonly DiscordRpcClient Client = new("1510333447003046018");
+    private static readonly DiscordRpcClient Client = new("1510672817958420624");
     private static readonly DateTime StartTimestamp = DateTime.UtcNow;
 
     public static async void Start()
@@ -42,7 +42,7 @@ class EonRPC
 
                 Buttons = new[]
                 {
-                    new Button { Label = "Join Discord", Url = ProjectDefinitions.Discord,
+                    new Button { Label = "Github Repo", Url = ProjectDefinitions.Github,
                 }
             }
         });
