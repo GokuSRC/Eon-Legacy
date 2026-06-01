@@ -58,7 +58,7 @@
                     FontWeight="SemiBold"/>
         </Grid>
 
-        <TextBlock Text="{x:Bind Season, Mode=TwoWay}"
+        <TextBlock Text="Eon Build (17.50-CL-17388565)"
                    Grid.Row="2"
                    Margin="2,8,8,4"
                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -90,11 +90,11 @@
                       Grid.Column="0"/>
 
             <StackPanel Grid.Column="1" Spacing="2">
-                <TextBlock Text="{x:Bind Install, Mode=TwoWay}"
+                <TextBlock Text="Install Eon"
                            FontWeight="SemiBold"
                            TextTrimming="CharacterEllipsis"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                <TextBlock Text="{x:Bind InstallBody, Mode=TwoWay}"
+                <TextBlock Text="Download the 17.50 Fortnite Build, essential for playing Eon."
                            FontWeight="SemiBold"
                            TextTrimming="CharacterEllipsis"/>
             </StackPanel>
@@ -131,11 +131,11 @@
                       Grid.Column="0"/>
 
             <StackPanel Grid.Column="1" Spacing="2">
-                <TextBlock Text="{x:Bind UninstallHeader, Mode=TwoWay}"
+                <TextBlock Text="Uninstall Eon"
                            FontWeight="SemiBold"
                            TextTrimming="CharacterEllipsis"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                <TextBlock Text="{x:Bind UninstallBody, Mode=TwoWay}"
+                <TextBlock Text="Delete Chapter 2 Season 7 from your computer. This will not uninstall the Eon Launcher."
                            FontWeight="SemiBold"
                            TextTrimming="CharacterEllipsis"/>
             </StackPanel>

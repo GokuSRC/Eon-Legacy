@@ -49,6 +49,7 @@ namespace FortniteLauncher.Pages
         {
             base.OnNavigatedTo(EventArgs);
             AnimateBlur();
+            UpdateIcons(GlobalSettings.Options.Theme ?? "Default");
         }
 
         private void AnimateBlur()
@@ -117,5 +118,22 @@ namespace FortniteLauncher.Pages
         private void OpenUri(string URI) => Process.Start(new ProcessStartInfo { UseShellExecute = true, FileName = URI });
         private void Tiktok(object Sender, RoutedEventArgs EventArgs) => OpenUri(ProjectDefinitions.Tiktok);
         private void Donations(object Sender, RoutedEventArgs EventArgs) => OpenUri(ProjectDefinitions.DonationsURL);
+
+        public void UpdateIcons(string Theme)
+        {
+            string Suffix = Theme == "Light" ? "_B" : string.Empty;
+
+            DonationsCard.HeaderIcon = new ImageIcon
+            {
+                Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(
+                    new Uri($"ms-appx:///Content/Texture/UI/T_Donate{Suffix}.png"))
+            };
+
+            TiktokCard.HeaderIcon = new ImageIcon
+            {
+                Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(
+                    new Uri($"ms-appx:///Content/Texture/UI/T_Tiktok{Suffix}.png"))
+            };
+        }
     }
 }

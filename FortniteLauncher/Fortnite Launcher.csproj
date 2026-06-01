@@ -42,6 +42,20 @@
 
 	<ItemGroup>
 		<None Remove="Content\Texture\Branding\EonPlus.ico" />
+		<None Remove="Content\Texture\Icons\IC_Download.png" />
+		<None Remove="Content\Texture\Icons\IC_Download_B.png" />
+		<None Remove="Content\Texture\Icons\IC_Leaderboard.png" />
+		<None Remove="Content\Texture\Icons\IC_Leaderboard_B.png" />
+		<None Remove="Content\Texture\Icons\IC_Play.png" />
+		<None Remove="Content\Texture\Icons\IC_Play_B.png" />
+		<None Remove="Content\Texture\Icons\IC_ServerStatus.png" />
+		<None Remove="Content\Texture\Icons\IC_ServerStatus_B.png" />
+		<None Remove="Content\Texture\Icons\IC_Settings.png" />
+		<None Remove="Content\Texture\Icons\IC_Settings_B.png" />
+		<None Remove="Content\Texture\Icons\IC_Shop.png" />
+		<None Remove="Content\Texture\Icons\IC_Shop_B.png" />
+		<None Remove="Content\Texture\UI\T_Donate_B.png" />
+		<None Remove="Content\Texture\UI\T_Tiktok_B.png" />
 		<None Remove="Pages\Downloads.xaml" />
 		<None Remove="Pages\Itemshop.xaml" />
 		<None Remove="Pages\Leaderboard.xaml" />
@@ -110,16 +124,30 @@
 		<Content Include="Content\Texture\Branding\EonPlus.ico">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
+		<Content Include="Content\Texture\Icons\IC_Download.png" />
 		<Content Include="Content\Texture\Icons\IC_Download.svg" />
+		<Content Include="Content\Texture\Icons\IC_Download_B.png" />
+		<Content Include="Content\Texture\Icons\IC_Leaderboard.png" />
 		<Content Include="Content\Texture\Icons\IC_Leaderboard.svg" />
+		<Content Include="Content\Texture\Icons\IC_Leaderboard_B.png" />
+		<Content Include="Content\Texture\Icons\IC_Play.png" />
 		<Content Include="Content\Texture\Icons\IC_Play.svg" />
+		<Content Include="Content\Texture\Icons\IC_Play_B.png" />
+		<Content Include="Content\Texture\Icons\IC_ServerStatus.png" />
 		<Content Include="Content\Texture\Icons\IC_ServerStatus.svg" />
+		<Content Include="Content\Texture\Icons\IC_ServerStatus_B.png" />
+		<Content Include="Content\Texture\Icons\IC_Settings.png" />
 		<Content Include="Content\Texture\Icons\IC_Settings.svg" />
+		<Content Include="Content\Texture\Icons\IC_Settings_B.png" />
+		<Content Include="Content\Texture\Icons\IC_Shop.png" />
 		<Content Include="Content\Texture\Icons\IC_Shop.svg" />
+		<Content Include="Content\Texture\Icons\IC_Shop_B.png" />
 		<Content Include="Content\Texture\UI\T_Banner.png" />
 		<Content Include="Content\Texture\UI\T_BattleBus.png" />
 		<Content Include="Content\Texture\UI\T_Donate.png" />
+		<Content Include="Content\Texture\UI\T_Donate_B.png" />
 		<Content Include="Content\Texture\UI\T_Tiktok.png" />
+		<Content Include="Content\Texture\UI\T_Tiktok_B.png" />
 		<Content Include="Source\UI\Pages\Authentication\Public\LoginPage.css">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>

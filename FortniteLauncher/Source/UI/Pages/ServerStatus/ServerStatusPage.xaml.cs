@@ -31,7 +31,7 @@ namespace FortniteLauncher.Pages
                 var BgColor = Theme switch
                 {
                     "Dark" => "#0D1117",
-                    "Light" => "#ffffff",
+                    "Light" => "#f0f0f0",
                     _ => "#202336"
                 };
                 string TextColor = Theme == "Light" ? "#000000" : "#ffffff";

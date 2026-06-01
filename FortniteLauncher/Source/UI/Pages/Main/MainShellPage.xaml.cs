@@ -1,6 +1,7 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using System;
 
 namespace FortniteLauncher.Pages
 {
@@ -45,5 +46,45 @@ namespace FortniteLauncher.Pages
             STATIC_MainNavigation = MainNavigation;
             SettingsPage.ApplyTheme(GlobalSettings.Options.Theme ?? "Default");
         }
+
+        public void UpdateIcons(string Theme)
+        {
+            string Suffix = Theme == "Light" ? "_B" : string.Empty;
+
+            SetIcon(PlayPageItem, $"ms-appx:///Content/Texture/Icons/IC_Play{Suffix}.png");
+            SetIcon(DownloadsItem, $"ms-appx:///Content/Texture/Icons/IC_Download{Suffix}.png");
+            SetIcon(ItemShopItem, $"ms-appx:///Content/Texture/Icons/IC_Shop{Suffix}.png");
+            SetIcon(LeaderboardItem, $"ms-appx:///Content/Texture/Icons/IC_Leaderboard{Suffix}.png");
+            SetIcon(ServerStatusItem, $"ms-appx:///Content/Texture/Icons/IC_ServerStatus{Suffix}.png");
+            SetIcon(SettingsItem, $"ms-appx:///Content/Texture/Icons/IC_Settings{Suffix}.png");
+        }
+
+        private void SetIcon(NavigationViewItem Item, string IconUri)
+        {
+            int MenuIndex = MainNavigation.MenuItems.IndexOf(Item);
+            int FooterIndex = MainNavigation.FooterMenuItems.IndexOf(Item);
+
+            var ImageIcon = new ImageIcon
+            {
+                Width = 24,
+                Height = 24,
+                Margin = new Microsoft.UI.Xaml.Thickness(-4),
+                Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri(IconUri))
+            };
+
+            if (MenuIndex >= 0)
+            {
+                MainNavigation.MenuItems.RemoveAt(MenuIndex);
+                Item.Icon = ImageIcon;
+                MainNavigation.MenuItems.Insert(MenuIndex, Item);
+            }
+            else if (FooterIndex >= 0)
+            {
+                MainNavigation.FooterMenuItems.RemoveAt(FooterIndex);
+                Item.Icon = ImageIcon;
+                MainNavigation.FooterMenuItems.Insert(FooterIndex, Item);
+            }
+        }
+        public Frame GetRootFrame() => RootFrame;
     }
 }

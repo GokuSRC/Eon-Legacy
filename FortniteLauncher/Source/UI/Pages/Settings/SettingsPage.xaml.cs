@@ -172,7 +172,7 @@ namespace FortniteLauncher.Pages
             {
                 var Color = Theme switch
                 {
-                    "Light" => Windows.UI.Color.FromArgb(255, 255, 255, 255),
+                    "Light" => Windows.UI.Color.FromArgb(255, 240, 240, 240),
                     "Dark" => Windows.UI.Color.FromArgb(255, 13, 17, 23),
                     _ => Windows.UI.Color.FromArgb(255, 32, 35, 54)
                 };
@@ -187,6 +187,21 @@ namespace FortniteLauncher.Pages
 
             if (MainWindow.ShellFrame?.Content is MainShellPage Shell)
                 Shell.SetBackground(Brush);
+
+            if (MainWindow.ShellFrame?.Content is MainShellPage ShellPage)
+            {
+                ShellPage.SetBackground(Brush);
+                ShellPage.UpdateIcons(Theme);
+            }
+
+            if (MainWindow.ShellFrame?.Content is MainShellPage ShellPager)
+            {
+                ShellPager.SetBackground(Brush);
+                ShellPager.UpdateIcons(Theme);
+
+                if (ShellPager.GetRootFrame()?.Content is PlayPage Play)
+                    Play.UpdateIcons(Theme);
+            }
         }
     }
 }

@@ -31,7 +31,7 @@ namespace FortniteLauncher.Pages
                 var BgColor = Theme switch
                 {
                     "Dark" => "#0D1117",
-                    "Light" => "#ffffff",
+                    "Light" => "#f0f0f0",
                     _ => "#202336"
                 };
                 string TextColor = Theme == "Light" ? "#000000" : "#ffffff";
@@ -53,7 +53,13 @@ namespace FortniteLauncher.Pages
     .UserSearchInput { background: rgba(0, 0, 0, 0.05) !important; color: #000 !important; border-color: rgba(0,0,0,0.2) !important; }
 " : string.Empty;
 
-                string LoadingStyle = $".LoadingOverlay {{ background: rgba({(Theme == "Light" ? "255, 255, 255" : Theme == "Dark" ? "13, 17, 23" : "32, 35, 54")}, 0.95) !important; }}";
+                string LoadingStyle = $@"
+    .LoadingOverlay {{ 
+        background: rgba({(Theme == "Light" ? "255, 255, 255" : Theme == "Dark" ? "13, 17, 23" : "32, 35, 54")}, 0.95) !important; 
+    }}
+    .LoadingText, .LoadingSubtext {{ 
+        color: {TextColor} !important; 
+    }}";
 
                 string Script = $@"
     const style = document.createElement('style');

@@ -58,6 +58,7 @@ namespace FortniteLauncher.Pages
                     .Replace("<script src=\"LoginPage.js\"></script>", $"<script>{JsContent}</script>");
 
                 LoginWebView.NavigateToString(CombinedHtml);
+                LoginWebView.CoreWebView2.NavigationCompleted += ApplyLoginTheme;
                 IsInitialized = true;
             }
             catch (Exception Exception)
@@ -175,6 +176,61 @@ namespace FortniteLauncher.Pages
             public string Action { get; set; }
             public string Email { get; set; }
             public string Password { get; set; }
+        }
+
+        private async void ApplyLoginTheme(object Sender, CoreWebView2NavigationCompletedEventArgs Args)
+        {
+            var Theme = GlobalSettings.Options.Theme;
+            var BgColor = Theme switch
+            {
+                "Dark" => "#0D1117",
+                "Light" => "#f0f0f0",
+                _ => "#202336"
+            };
+            string TextColor = Theme == "Light" ? "#000000" : "#ffffff";
+            string InputBg = Theme == "Light" ? "rgba(0,0,0,0.05)" : "rgba(20, 22, 40, 0.8)";
+            string InputColor = Theme == "Light" ? "#000000" : "#ffffff";
+            string BoxBg = Theme == "Light" ? "rgba(220,220,220,0.8)" : "rgba(30, 33, 55, 0.6)";
+            string Script = $@"
+    const style = document.createElement('style');
+    style.textContent = `
+        body, html {{
+            background: {BgColor} !important;
+            color: {TextColor} !important;
+        }}
+        .bg-gradient {{
+            background: none !important;
+        }}
+        .login-box {{
+            background: {BoxBg} !important;
+        }}
+        .welcome-text, .subtitle, .form-label, .checkbox-label, 
+        .signup-container, .forgot-link, h1, h2, h3, p, label, span, div {{
+            color: {TextColor} !important;
+        }}
+        input[type='text'], input[type='email'], input[type='password'] {{
+            background: {InputBg} !important;
+            color: {InputColor} !important;
+            border-color: rgba(0,0,0,0.15) !important;
+        }}
+        input::placeholder {{
+            color: {(Theme == "Light" ? "rgba(0,0,0,0.4)" : "rgba(255,255,255,0.2)")} !important;
+        }}
+        .login-button {{
+            background: {(Theme == "Light" ? "#333333" : "rgba(255,255,255,0.95)")} !important;
+            color: {(Theme == "Light" ? "#ffffff" : "#202336")} !important;
+        }}
+        .forgot-link {{
+            color: #3b82f6 !important;
+        }}
+        .signup-link {{
+            color: #3b82f6 !important;
+        }}
+    `;
+    document.head.appendChild(style);
+";
+
+            await LoginWebView.CoreWebView2.ExecuteScriptAsync(Script);
         }
     }
 }
