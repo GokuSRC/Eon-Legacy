@@ -58,11 +58,25 @@ class DialogService
             PrimaryButtonText = IsYesNo ? "Yes" : null,
             CloseButtonText = IsYesNo ? "No" : "OK",
             DefaultButton = ContentDialogButton.Primary,
-            Background = CreateSolidBrush(30, 30, 40),
-            BorderBrush = CreateSolidBrush(60, 60, 70),
+            Background = GlobalSettings.Options.Theme switch
+            {
+                "Light" => CreateSolidBrush(255, 255, 255),
+                "Dark" => CreateSolidBrush(13, 17, 23),
+                _ => CreateSolidBrush(30, 30, 40)
+            },
+            BorderBrush = GlobalSettings.Options.Theme switch
+            {
+                "Light" => CreateSolidBrush(200, 200, 200),
+                "Dark" => CreateSolidBrush(30, 30, 30),
+                _ => CreateSolidBrush(60, 60, 70)
+            },
             CornerRadius = new CornerRadius(DialogCornerRadius),
-            PrimaryButtonStyle = CreateButtonStyle(45, 45, 55, 200, 200, 200, 60, 60, 70),
-            CloseButtonStyle = CreateButtonStyle(35, 35, 45, 160, 160, 170, 50, 50, 60)
+            PrimaryButtonStyle = GlobalSettings.Options.Theme == "Light"
+    ? CreateButtonStyle(200, 200, 200, 0, 0, 0, 150, 150, 150)
+    : CreateButtonStyle(45, 45, 55, 200, 200, 200, 60, 60, 70),
+            CloseButtonStyle = GlobalSettings.Options.Theme == "Light"
+    ? CreateButtonStyle(220, 220, 220, 0, 0, 0, 180, 180, 180)
+    : CreateButtonStyle(35, 35, 45, 160, 160, 170, 50, 50, 60)
         };
     }
 
@@ -110,7 +124,9 @@ class DialogService
             Text = Title,
             FontSize = TitleFontSize,
             FontWeight = new Windows.UI.Text.FontWeight { Weight = 700 },
-            Foreground = CreateSolidBrush(255, 255, 255),
+            Foreground = GlobalSettings.Options.Theme == "Light"
+    ? CreateSolidBrush(0, 0, 0)
+    : CreateSolidBrush(255, 255, 255),
             VerticalAlignment = VerticalAlignment.Center
         };
     }
@@ -121,7 +137,9 @@ class DialogService
         {
             TextWrapping = TextWrapping.Wrap,
             FontSize = ContentFontSize,
-            Foreground = CreateSolidBrush(200, 200, 200),
+            Foreground = GlobalSettings.Options.Theme == "Light"
+    ? CreateSolidBrush(0, 0, 0)
+    : CreateSolidBrush(200, 200, 200),
             LineHeight = ContentLineHeight,
             MaxWidth = ContentMaxWidth
         };
@@ -167,15 +185,12 @@ class DialogService
 
     private static Style CreateButtonStyle(byte BackR, byte BackG, byte BackB, byte ForeR, byte ForeG, byte ForeB, byte BorderR, byte BorderG, byte BorderB)
     {
-        Style ButtonStyle = new Style(typeof(Button));
+        var BaseStyle = Application.Current.Resources["DialogButtonStyle"] as Style;
+        Style ButtonStyle = new Style(typeof(Button)) { BasedOn = BaseStyle };
 
         ButtonStyle.Setters.Add(new Setter(Button.BackgroundProperty, CreateSolidBrush(BackR, BackG, BackB)));
         ButtonStyle.Setters.Add(new Setter(Button.ForegroundProperty, CreateSolidBrush(ForeR, ForeG, ForeB)));
         ButtonStyle.Setters.Add(new Setter(Button.BorderBrushProperty, CreateSolidBrush(BorderR, BorderG, BorderB)));
-        ButtonStyle.Setters.Add(new Setter(Button.BorderThicknessProperty, new Thickness(1)));
-        ButtonStyle.Setters.Add(new Setter(Button.CornerRadiusProperty, new CornerRadius(ButtonCornerRadius)));
-        ButtonStyle.Setters.Add(new Setter(Button.PaddingProperty, new Thickness(24, 10, 24, 10)));
-        ButtonStyle.Setters.Add(new Setter(Button.FontWeightProperty, new Windows.UI.Text.FontWeight { Weight = 600 }));
 
         return ButtonStyle;
     }

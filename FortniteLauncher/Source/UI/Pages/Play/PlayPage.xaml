@@ -61,15 +61,15 @@
 
                     <StackPanel VerticalAlignment="Center" Grid.Column="1" Margin="15,0,0,0">
                         <TextBlock Text="{x:Bind DisplayUsername, Mode=OneWay}" 
-                                   FontSize="24"
-                                   FontWeight="Bold"
-                                   Style="{ThemeResource TitleTextBlockStyle}"/>
+           FontSize="24"
+           FontWeight="Bold"
+           Foreground="White"
+           Style="{ThemeResource TitleTextBlockStyle}"/>
                         <TextBlock Text="{x:Bind Description, Mode=OneWay}" 
-                                   FontSize="16"
-                                   FontWeight="SemiBold"
-                                   Style="{ThemeResource SubtitleTextBlockStyle}" 
-                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                   Margin="0,1,0,0"/>
+           FontSize="16"
+           FontWeight="SemiBold"
+           Foreground="White"
+           Margin="0,1,0,0"/>
                     </StackPanel>
                 </Grid>
             </Border>

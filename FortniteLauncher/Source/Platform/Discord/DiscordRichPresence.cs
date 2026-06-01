@@ -28,7 +28,7 @@ class EonRPC
 
             Client.SetPresence(new RichPresence
             {
-                Details = "An OG Fortnite Experience.",
+                Details = "An enhanced OG Fortnite Experience!",
                 Timestamps = new Timestamps { Start = StartTimestamp },
 
                 Assets = new Assets
@@ -37,12 +37,12 @@ class EonRPC
                     SmallImageText = GlobalSettings.Options.Username,
 
                     LargeImageKey = "fn17",
-                    LargeImageText = "Logged In Launcher."
+                    LargeImageText = "Launcher enhanced by Eon + !"
                 },
 
                 Buttons = new[]
                 {
-                    new Button { Label = "Github Repo", Url = ProjectDefinitions.Github,
+                    new Button { Label = "Our GitHub Repository", Url = ProjectDefinitions.Github,
                 }
             }
         });
