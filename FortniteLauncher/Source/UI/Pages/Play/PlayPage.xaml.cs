@@ -5,7 +5,10 @@ using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FortniteLauncher.Pages
@@ -16,9 +19,9 @@ namespace FortniteLauncher.Pages
         public static ProgressRing ProgressRing;
         private string Progress = DownloadService.DownloadProgress;
         private readonly string DisplayUsername = GetRandomGreeting();
-        private readonly string Description = $"Experience the best Chapter {ProjectDefinitions.Chapter} Season {ProjectDefinitions.Season} experience with {ProjectDefinitions.Name}.";
         public static readonly string Season = "Launch Fortnite";
         public static readonly string Chapter = string.Empty;
+        private List<string> _onlinePlayers = new();
 
         private static string GetRandomGreeting()
         {
@@ -43,6 +46,42 @@ namespace FortniteLauncher.Pages
             LoadProfileImage();
             Launch_Button = LaunchButton;
             DownloadService.ProgressChanged += OnDownloadProgressChanged;
+            FetchPlayerCount();
+
+            var Timer = new System.Timers.Timer(30000);
+            Timer.Elapsed += (s, e) => FetchPlayerCount();
+            Timer.AutoReset = true;
+            Timer.Start();
+        }
+
+        private async void FetchPlayerCount()
+        {
+            try
+            {
+                var Client = new HttpClient();
+                var Response = await Client.GetStringAsync("https://services.eonfn.net:2087");
+                var Json = JsonDocument.Parse(Response);
+                var AllPlayers = new System.Collections.Generic.List<string>();
+
+                foreach (var Player in Json.RootElement.GetProperty("Clients").GetProperty("clients").EnumerateArray())
+                {
+                    var Name = Player.GetString();
+                    if (!Name.StartsWith("user_", StringComparison.OrdinalIgnoreCase))
+                        AllPlayers.Add(Name);
+                }
+
+                _onlinePlayers = AllPlayers;
+                DispatcherQueue.TryEnqueue(() => PlayerCountButton.Content = $"{_onlinePlayers.Count} players");
+            }
+            catch
+            {
+                DispatcherQueue.TryEnqueue(() => PlayerCountButton.Content = "? players");
+            }
+        }
+
+        private void ShowPlayerList(object Sender, RoutedEventArgs EventArgs)
+        {
+            DialogService.ShowPlayerListDialog(_onlinePlayers, "Players Online");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs EventArgs)
@@ -125,14 +164,12 @@ namespace FortniteLauncher.Pages
 
             DonationsCard.HeaderIcon = new ImageIcon
             {
-                Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(
-                    new Uri($"ms-appx:///Content/Texture/UI/T_Donate{Suffix}.png"))
+                Source = new BitmapImage(new Uri($"ms-appx:///Content/Texture/UI/T_Donate{Suffix}.png"))
             };
 
             TiktokCard.HeaderIcon = new ImageIcon
             {
-                Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(
-                    new Uri($"ms-appx:///Content/Texture/UI/T_Tiktok{Suffix}.png"))
+                Source = new BitmapImage(new Uri($"ms-appx:///Content/Texture/UI/T_Tiktok{Suffix}.png"))
             };
         }
     }
