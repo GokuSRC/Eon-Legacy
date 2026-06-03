@@ -5,6 +5,12 @@
 ![WinUI3](https://img.shields.io/badge/WinUI3-0078D4?style=for-the-badge&logo=windows&logoColor=white)
 ![WebView2](https://img.shields.io/badge/WebView2-0078D4?style=for-the-badge&logo=microsoftedge&logoColor=white)
 
-> OG Fortnite Launcher made for **Eon**.
+# Eon +
 
-<img width="1184" height="716" alt="image" src="https://github.com/user-attachments/assets/43fdf901-19c8-4bc4-bd78-f9b87e58fb20" />
+## Our current features
+
+- Fully implemented Themes
+- Easter Egg
+- Custom Eon+ RPC
+
+<img width="1180" height="719" alt="image" src="https://github.com/user-attachments/assets/b2667d07-1e05-4eb3-8ed8-172f7d6fd9a9" />
