@@ -5,7 +5,7 @@
 ![WinUI3](https://img.shields.io/badge/WinUI3-0078D4?style=for-the-badge&logo=windows&logoColor=white)
 ![WebView2](https://img.shields.io/badge/WebView2-0078D4?style=for-the-badge&logo=microsoftedge&logoColor=white)
 
-# Eon +
+# Eon Legacy
 
 ## Our current features
 
