@@ -13,4 +13,4 @@
 - Easter Egg
 - Custom Eon+ RPC
 
-<img width="1180" height="719" alt="image" src="https://github.com/user-attachments/assets/b2667d07-1e05-4eb3-8ed8-172f7d6fd9a9" />
+<img width="1180" height="719" alt="image" src="https://cdn.discordapp.com/attachments/1512582919246577758/1513105920027000922/image.png?ex=6a268533&is=6a2533b3&hm=2078270477bb0f85d82f6f11f9f7489f55d70abd168444f4c3e7f8e7d3d13de6&" />
